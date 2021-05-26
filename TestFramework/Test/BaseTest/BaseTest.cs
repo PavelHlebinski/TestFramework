@@ -10,6 +10,7 @@ namespace TestFramework.Test
         private readonly string url = AppSettings.ReadSettings("URL");
         protected MainPage MainPage = new MainPage();
         protected DroppablePage DroppablePage = new DroppablePage();
+        protected SortablePage SortablePage = new SortablePage();
 
         [SetUp]
         public void SetUp() => MainPage.OprnURL(url);

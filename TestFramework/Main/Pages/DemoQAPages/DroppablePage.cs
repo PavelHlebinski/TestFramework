@@ -3,7 +3,7 @@ using TestFramework.Main.WebElements;
 
 namespace TestFramework.Main.Pages.DemoQAPages
 {
-    public class DroppablePage : BasePage
+    public class DroppablePage
     {
         private WebElement DragMeButton => new WebElement(By.Id("draggable"));
 

@@ -7,7 +7,8 @@ namespace TestFramework.Test.Tests
         [TestCase(TestName = "Drag and Drop Test")]
         public void DADTest()
         {
-            MainPage.OpenPageForTests();
+            MainPage.OpenInteractionsPage();
+            MainPage.OpenDroppablePage();
             DroppablePage.DragAndDrop();
         }
     }

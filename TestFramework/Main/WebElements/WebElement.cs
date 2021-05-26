@@ -28,7 +28,7 @@ namespace TestFramework.Main.WebElements
 
         public void SendKeys(string value) => InnerWebElement.SendKeys(value);
 
-        public void WaitForElementIsPresent() => WaitFactory.GetWait(10000).Until(drv => drv.FindElements(_locator).Count > 0);
+        public void WaitForElementIsPresent() => WaitFactory.GetWait(10).Until(drv => drv.FindElements(_locator).Count > 0);
 
         public string GetElementClassAttribute() => GetElementAttribute("class");
 
