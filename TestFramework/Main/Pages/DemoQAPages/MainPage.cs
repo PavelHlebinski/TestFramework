@@ -1,31 +1,23 @@
 ﻿using OpenQA.Selenium;
-using System;
 using TestFramework.Main.WebElements;
 
 namespace TestFramework.Main.Pages.DemoQAPages
 {
     public class MainPage : BasePage
     {
-        public void OpenPage(string url)
-        {
-            try
-            {
-                Driver.Navigate().GoToUrl(url);
-            }
-            catch
-            {
-                Console.WriteLine("URL not found");
-            }
-        }
+        private const string MainButtonLocator = "//div[@class=\"card mt-4 top-card\"]//*[text()='{0}']";
+        private const string ExpandedButtonLocator = "//*[@class=\"btn btn-light \"]//*[text()='{0}']";
+
+        private WebElement InteractionsButton => new WebElement(By.XPath(string.Format(MainButtonLocator, "Interactions")));
+
+        private WebElement DroppableButton => new WebElement(By.XPath(string.Format(ExpandedButtonLocator, "Droppable")));
+
+        public void OpenPage(string URL) => OprnURL(URL);
 
         public void OpenPageForTests()
         {
-            ElementActions.ClickButton(MainButton("Interactions"));
-            ElementActions.ClickButton(ExpandedButton("Droppable"));
+            InteractionsButton.Click();
+            DroppableButton.Click();
         }
-
-        private static By MainButton(string buttonName) => By.XPath($"//div[@class=\"card mt-4 top-card\"]//*[text()='{buttonName}']");
-
-        private static By ExpandedButton(string buttonName) => By.XPath($"//*[@class=\"btn btn-light \"]//*[text()='{buttonName}']");
     }
 }

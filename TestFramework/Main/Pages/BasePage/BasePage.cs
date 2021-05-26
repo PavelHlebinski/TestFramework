@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System;
 using TestFramework.Main.Driver;
 
 namespace TestFramework.Main.Pages
@@ -9,10 +10,16 @@ namespace TestFramework.Main.Pages
         protected static WebDriverWait Wait;
         protected static IWebDriver Driver;
 
-        public BasePage()
+        public void OprnURL(string url)
         {
-            Driver = DriverFactory.InitializeDriver();
-            Wait = DriverFactory.InitializeWait(DriverFactory.InitializeDriver(), 10);
+            try
+            {
+                DriverFactory.GetDriver().Navigate().GoToUrl(url);
+            }
+            catch
+            {
+                Console.WriteLine("URL not found");
+            }
         }
     }
 }

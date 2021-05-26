@@ -12,7 +12,7 @@ namespace TestFramework.Test
         protected DroppablePage DroppablePage = new DroppablePage();
 
         [SetUp]
-        public void SetUp() => MainPage.OpenPage(url);
+        public void SetUp() => MainPage.OprnURL(url);
 
         [TearDown]
         public void OneTimeTearDown() => DriverFactory.QuitDriver();
