@@ -1,11 +1,10 @@
-﻿using OpenQA.Selenium;
-using System;
+﻿using System;
 using TestFramework.Main.Driver;
 
 namespace TestFramework.Main.Pages
 {
     public class BasePage
-    {       
+    {
         public void OprnURL(string url)
         {
             try

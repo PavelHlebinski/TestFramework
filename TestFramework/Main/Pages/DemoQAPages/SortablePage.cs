@@ -1,10 +1,6 @@
 ﻿using OpenQA.Selenium;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading;
-using TestFramework.Main.Driver;
 using TestFramework.Main.WebElements;
 
 namespace TestFramework.Main.Pages.DemoQAPages
@@ -23,8 +19,8 @@ namespace TestFramework.Main.Pages.DemoQAPages
 
         public void ChangeGridPosition()
         {
-            Gridtab.Click();                       
-            SortableGrid.DragAndDrop(0, 4);            
+            Gridtab.Click();
+            SortableGrid.DragAndDrop(0, 4);
         }
 
         public bool IsGridOrderCorrect() => Enumerable.SequenceEqual(rightGridOrder, SortableGrid.GetElementsText());
