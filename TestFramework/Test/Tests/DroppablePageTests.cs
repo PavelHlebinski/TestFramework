@@ -1,11 +1,12 @@
 ﻿using NUnit.Framework;
+using TestFramework.Test.BaseTests;
 
 namespace TestFramework.Test.Tests
 {
     public class DroppablePageTests : BaseTest
     {
         [TestCase(TestName = "Drag and Drop Test")]
-        public void DADTest()
+        public void DragAndDropTest()
         {
             MainPage.OpenInteractionsPage();
             MainPage.OpenDroppablePage();

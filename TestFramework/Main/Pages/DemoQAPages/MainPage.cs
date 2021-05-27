@@ -20,5 +20,6 @@ namespace TestFramework.Main.Pages.DemoQAPages
 
         public void OpenSortablePage() => ExpandButton("Sortable").Click();
 
+        public void OpenSelectablePage() => ExpandButton("Selectable").Click();
     }
 }

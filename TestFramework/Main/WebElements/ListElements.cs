@@ -6,7 +6,7 @@ using TestFramework.Main.Driver;
 
 namespace TestFramework.Main.WebElements
 {
-    public class ListElements
+    public class ListElements : BaseActionRunner
     {
         private readonly By _locator;
         private readonly List<string> _elementsText = new List<string> { };
@@ -28,7 +28,11 @@ namespace TestFramework.Main.WebElements
         public void WaitForElementIsPresent() => WaitFactory.GetWait(10).Until(drv => drv.FindElements(_locator).Count > 0);
 
         public void DragAndDrop(int fromMove, int toMove) => new Actions(DriverFactory.GetDriver())
-            .ClickAndHold(InnerWebElementsList[fromMove]).MoveToElement(InnerWebElementsList[toMove]).Release(InnerWebElementsList[fromMove]).Build().Perform();
+            .ClickAndHold(InnerWebElementsList[fromMove])
+            .MoveToElement(InnerWebElementsList[toMove])
+            .Release(InnerWebElementsList[fromMove])
+            .Build()
+            .Perform();
 
         public List<string> GetElementsText()
         {
@@ -38,6 +42,15 @@ namespace TestFramework.Main.WebElements
             }
             return _elementsText;
         }
+
+        public void Click(int elementNumber) => Execute(
+            check: () => InnerWebElementsList[elementNumber].Click()
+        );
+
+
+        public string GetElementAttribute(int elementNubmer, string attributeName) => Execute(
+            check: () => InnerWebElementsList[elementNubmer].GetAttribute(attributeName)
+        );
     }
 }
 
