@@ -12,6 +12,7 @@ namespace TestFramework.Test.BaseTests
         protected DroppablePage DroppablePage = new DroppablePage();
         protected SortablePage SortablePage = new SortablePage();
         protected SelectablePage SelectablePage = new SelectablePage();
+        protected ResizablePage ResizablePage = new ResizablePage();
 
         [SetUp]
         public void SetUp() => MainPage.OprnURL(url);

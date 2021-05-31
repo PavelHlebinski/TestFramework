@@ -7,6 +7,7 @@ namespace TestFramework.Main.WebElements
     public class WebElement
     {
         private readonly By _locator;
+        private readonly Actions _actions = new Actions(DriverFactory.GetDriver());
 
         public WebElement(By locator)
         {
@@ -24,7 +25,7 @@ namespace TestFramework.Main.WebElements
 
         public void Click() => InnerWebElement.Click();
 
-        public void DragAndDrop(WebElement dropTo) => new Actions(DriverFactory.GetDriver()).ClickAndHold(InnerWebElement).MoveToElement(dropTo.InnerWebElement).Release(InnerWebElement).Build().Perform();
+        public void DragAndDrop(WebElement dropTo) => _actions.ClickAndHold(InnerWebElement).MoveToElement(dropTo.InnerWebElement).Release(InnerWebElement).Build().Perform();
 
         public void SendKeys(string value) => InnerWebElement.SendKeys(value);
 
@@ -32,6 +33,12 @@ namespace TestFramework.Main.WebElements
 
         public string GetElementClassAttribute() => GetElementAttribute("class");
 
+        public string GetElementStyleAttribute() => GetElementAttribute("style");
+
         private string GetElementAttribute(string attributeName) => InnerWebElement.GetAttribute(attributeName);
+
+        public void Resize(int x, int y) => _actions.ClickAndHold(InnerWebElement).MoveByOffset(x, y).Release().Build().Perform();
+
+
     }
 }
